@@ -5,6 +5,8 @@ from sandman import views
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
         url(r'^help/$', views.help, name='help'),
+        url(r'^charmed/$', views.charmed, name='charmed'),
+        url(r'^settings/$', views.settings, name='settings'),
 )
 
 if settings.DEBUG:
