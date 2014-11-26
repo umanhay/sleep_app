@@ -1,0 +1,516 @@
+[
+    {
+        "pk": 1,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "permission",
+            "name": "permission",
+            "app_label": "auth"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "group",
+            "name": "group",
+            "app_label": "auth"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "user",
+            "name": "user",
+            "app_label": "auth"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "contenttype",
+            "name": "content type",
+            "app_label": "contenttypes"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "session",
+            "name": "session",
+            "app_label": "sessions"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "site",
+            "name": "site",
+            "app_label": "sites"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "logentry",
+            "name": "log entry",
+            "app_label": "admin"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "mode",
+            "name": "mode",
+            "app_label": "sandman"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "contenttypes.contenttype",
+        "fields": {
+            "model": "contacts",
+            "name": "contacts",
+            "app_label": "sandman"
+        }
+    },
+    {
+        "pk": "va0yt3qo5a496dgghruk779f04l6xsm7",
+        "model": "sessions.session",
+        "fields": {
+            "expire_date": "2014-12-10T03:24:41.189Z",
+            "session_data": "YjRmOGEyZDQyMzdlMmM3NTQ3ODU3OTBhYzFhN2MyZGNmZWM1NGYwNTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0="
+        }
+    },
+    {
+        "pk": 1,
+        "model": "sites.site",
+        "fields": {
+            "domain": "example.com",
+            "name": "example.com"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_permission",
+            "name": "Can add permission",
+            "content_type": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_permission",
+            "name": "Can change permission",
+            "content_type": 1
+        }
+    },
+    {
+        "pk": 3,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_permission",
+            "name": "Can delete permission",
+            "content_type": 1
+        }
+    },
+    {
+        "pk": 4,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_group",
+            "name": "Can add group",
+            "content_type": 2
+        }
+    },
+    {
+        "pk": 5,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_group",
+            "name": "Can change group",
+            "content_type": 2
+        }
+    },
+    {
+        "pk": 6,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_group",
+            "name": "Can delete group",
+            "content_type": 2
+        }
+    },
+    {
+        "pk": 7,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_user",
+            "name": "Can add user",
+            "content_type": 3
+        }
+    },
+    {
+        "pk": 8,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_user",
+            "name": "Can change user",
+            "content_type": 3
+        }
+    },
+    {
+        "pk": 9,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_user",
+            "name": "Can delete user",
+            "content_type": 3
+        }
+    },
+    {
+        "pk": 10,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_contenttype",
+            "name": "Can add content type",
+            "content_type": 4
+        }
+    },
+    {
+        "pk": 11,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_contenttype",
+            "name": "Can change content type",
+            "content_type": 4
+        }
+    },
+    {
+        "pk": 12,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_contenttype",
+            "name": "Can delete content type",
+            "content_type": 4
+        }
+    },
+    {
+        "pk": 13,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_session",
+            "name": "Can add session",
+            "content_type": 5
+        }
+    },
+    {
+        "pk": 14,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_session",
+            "name": "Can change session",
+            "content_type": 5
+        }
+    },
+    {
+        "pk": 15,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_session",
+            "name": "Can delete session",
+            "content_type": 5
+        }
+    },
+    {
+        "pk": 16,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_site",
+            "name": "Can add site",
+            "content_type": 6
+        }
+    },
+    {
+        "pk": 17,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_site",
+            "name": "Can change site",
+            "content_type": 6
+        }
+    },
+    {
+        "pk": 18,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_site",
+            "name": "Can delete site",
+            "content_type": 6
+        }
+    },
+    {
+        "pk": 19,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_logentry",
+            "name": "Can add log entry",
+            "content_type": 7
+        }
+    },
+    {
+        "pk": 20,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_logentry",
+            "name": "Can change log entry",
+            "content_type": 7
+        }
+    },
+    {
+        "pk": 21,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_logentry",
+            "name": "Can delete log entry",
+            "content_type": 7
+        }
+    },
+    {
+        "pk": 22,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_mode",
+            "name": "Can add mode",
+            "content_type": 8
+        }
+    },
+    {
+        "pk": 23,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_mode",
+            "name": "Can change mode",
+            "content_type": 8
+        }
+    },
+    {
+        "pk": 24,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_mode",
+            "name": "Can delete mode",
+            "content_type": 8
+        }
+    },
+    {
+        "pk": 25,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "add_contacts",
+            "name": "Can add contacts",
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 26,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "change_contacts",
+            "name": "Can change contacts",
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 27,
+        "model": "auth.permission",
+        "fields": {
+            "codename": "delete_contacts",
+            "name": "Can delete contacts",
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 1,
+        "model": "auth.user",
+        "fields": {
+            "username": "ptown727@yahoo.com",
+            "first_name": "",
+            "last_name": "",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2014-11-26T03:24:41.087Z",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$r1dvO17HgWKG$Ipa+g051+z4jl4Z4Y+NnyYW9GouUXBA2LygyiDptZo8=",
+            "email": "ptown727@yahoo.com",
+            "date_joined": "2014-11-26T03:22:19.043Z"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "auth.user",
+        "fields": {
+            "username": "manda",
+            "first_name": "",
+            "last_name": "",
+            "is_active": true,
+            "is_superuser": false,
+            "is_staff": false,
+            "last_login": "2014-11-26T03:28:12.465Z",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$0NaCML1WCeme$3nJdlyvtsSqm+/Fc2454RlXL/lpEQixax48inve0F3k=",
+            "email": "",
+            "date_joined": "2014-11-26T03:28:12.465Z"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "admin.logentry",
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2014-11-26T03:28:12.637Z",
+            "object_repr": "manda",
+            "object_id": "2",
+            "change_message": "",
+            "user": 1,
+            "content_type": 3
+        }
+    },
+    {
+        "pk": 2,
+        "model": "admin.logentry",
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2014-11-26T03:28:17.095Z",
+            "object_repr": "Manda",
+            "object_id": "1",
+            "change_message": "",
+            "user": 1,
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 3,
+        "model": "admin.logentry",
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2014-11-26T03:29:44.241Z",
+            "object_repr": "Jake",
+            "object_id": "2",
+            "change_message": "",
+            "user": 1,
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 4,
+        "model": "admin.logentry",
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2014-11-26T03:30:16.060Z",
+            "object_repr": "Ashton",
+            "object_id": "3",
+            "change_message": "",
+            "user": 1,
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 5,
+        "model": "admin.logentry",
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2014-11-26T03:30:42.829Z",
+            "object_repr": "Carly",
+            "object_id": "4",
+            "change_message": "",
+            "user": 1,
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 6,
+        "model": "admin.logentry",
+        "fields": {
+            "action_flag": 1,
+            "action_time": "2014-11-26T03:31:02.442Z",
+            "object_repr": "Rob",
+            "object_id": "5",
+            "change_message": "",
+            "user": 1,
+            "content_type": 9
+        }
+    },
+    {
+        "pk": 1,
+        "model": "sandman.contacts",
+        "fields": {
+            "charmed": true,
+            "number": "503-777-2222",
+            "user": 2,
+            "name": "Manda"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "sandman.contacts",
+        "fields": {
+            "charmed": true,
+            "number": "503-555-8989",
+            "user": 2,
+            "name": "Jake"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "sandman.contacts",
+        "fields": {
+            "charmed": true,
+            "number": "503-333-3839",
+            "user": 2,
+            "name": "Ashton"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "sandman.contacts",
+        "fields": {
+            "charmed": false,
+            "number": "503-123-4657",
+            "user": 2,
+            "name": "Carly"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "sandman.contacts",
+        "fields": {
+            "charmed": false,
+            "number": "503-999-0000",
+            "user": 2,
+            "name": "Rob"
+        }
+    },
+         {
+        "pk": 6,
+        "model": "sandman.contacts",
+        "fields": {
+            "charmed": false,
+            "number": "503-999-1111",
+            "user": 2,
+            "name": "Lily"
+        }
+    }
+]
