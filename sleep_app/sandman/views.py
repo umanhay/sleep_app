@@ -3,7 +3,8 @@ from django.shortcuts import render_to_response
 from json import dumps
 #'dumps' isn't plural, actually is short for 'dump string'.  Same with 'loads'
 from django.http import HttpResponse
-from sandman.models import Mode, Contacts
+from sandman.models import Mode
+from sandman.models import Contacts
 from django.contrib.auth.models import User
 
 

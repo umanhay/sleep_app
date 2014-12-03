@@ -1,0 +1,42 @@
+/*************************
+GENERAL
+*************************/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #666699;
+}
+
+/*************************
+HEADING
+*************************/
+
+header {
+    text-align: center;
+    color: #dde1ee;
+    width: 100%;
+}
+
+/*************************
+FOOTER
+*************************/
+
+footer {
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    margin: 0 10px;
+    padding: 0;
+}
+
+footer li {
+    display: inline-block;
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 15px 10px;
+}
