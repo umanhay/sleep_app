@@ -4,18 +4,31 @@ GENERAL
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #666699;
+  background-color: #422C83;
 }
 
 /*************************
 HEADING
 *************************/
 
-header {
+#header {
     text-align: center;
-    color: #dde1ee;
+    color: #886ED7;
     width: 100%;
 }
+
+/*************************
+CONTENT
+*************************/
+
+#content p, h3 {
+    color: #ffffff;
+}
+
+#content h2 {
+    color: #886ED7;
+}
+
 
 /*************************
 FOOTER
@@ -37,6 +50,16 @@ footer li {
 
 footer a {
     text-decoration: none;
+    color: #886ED7;
     font-weight: 500;
     padding: 15px 10px;
+    -o-transition:color .2s ease-out;
+    -ms-transition:color .2s ease-out;
+    -moz-transition:color .2s ease-out;
+    -webkit-transition:color .2s ease-out;
+    transition: color .2s ease-out;
+}
+
+footer a:hover {
+    color: #201349;
 }

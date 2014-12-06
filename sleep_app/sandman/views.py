@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from sandman.models import Mode
 from sandman.models import Contacts
 from django.contrib.auth.models import User
+from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request):
@@ -17,7 +19,14 @@ def index(request):
 
     return render_to_response('sandman/index.html', context_dict, context)
 
+@csrf_exempt
 def ajax(request):
+
+    if request.method == "POST":
+        user = User()
+        user.username = request.POST["name"]
+        user.save()
+
     user = list(User.objects.all())
     user_list = []
     for u in user:
@@ -25,7 +34,13 @@ def ajax(request):
             "name": u.username
         })
 
-    return HttpResponse(dumps(user_list), content_type="application/json")
+    return HttpResponse(dumps(user_list, indent=4), content_type="application/json")
+
+def dom(request):
+    if request.method == "POST":
+        print request.POST
+
+    return render(request, 'sandman/dom.html')
 
 
 def charmed(request):
