@@ -8,7 +8,6 @@ class Mode(models.Model):
     def __unicode__(self):
         return self.name
 
-
 class Contacts(models.Model):
     user = models.ForeignKey(User)
     name = models.CharField(max_length=255)
@@ -20,4 +19,15 @@ class Contacts(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Help(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField(max_length=255, required=True)
+    subject = models.CharField(max_length=255)
+    message = models.TextField()
+
+    def __unicode__(self):
+        return self.name
+
+
 

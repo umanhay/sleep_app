@@ -8,10 +8,24 @@
     </head>
 
     <body>
-        <h1>SETTINGS</h1>
-        <a href="/sandman/">Home</a><br />
-        <a href="/sandman/charmed/">Charmed Circle</a><br />
-        <a href="/sandman/help/">Help</a><br />
+        <div id="header">
+            <h1>SETTINGS</h1>
+        </div>
+        <form id="settings" action="/sandman/settings/" method="POST" onsubmit="return captureSubmit()">
+            <p>
+                <input type="radio" name="set" value="manual" checked="checked" /> Manual <br />
+                <input type="radio" name="set" value="half" /> Half and Half <br />
+                <input type="radio" name="set" value="auto" /> Automatic <br />
+            </p>
+        </form>
+        <footer>
+            <ul>
+                <li><a href="/sandman/">Home</a></li>
+                <li><a href="/sandman/charmed/">Charmed Circle</a></li>
+                <li><a href="/sandman/settings/">Settings</a></li>
+                <li><a href="/sandman/help/">Help</a></li>
+            </ul>
+        </footer>
     </body>
 
 </html>

@@ -4,6 +4,7 @@ from json import dumps
 #'dumps' isn't plural, actually is short for 'dump string'.  Same with 'loads'
 from django.http import HttpResponse
 from sandman.models import Mode
+from sandman.models import Help
 from sandman.models import Contacts
 from django.contrib.auth.models import User
 from django.shortcuts import render
@@ -42,6 +43,11 @@ def dom(request):
 
     return render(request, 'sandman/dom.html')
 
+def help(request):
+    context = RequestContext(request)
+    context_dict = {}
+    return render_to_response('sandman/help.html', context_dict, context)
+
 
 def charmed(request):
     context = RequestContext(request)
@@ -56,10 +62,6 @@ def settings(request):
 
     return render_to_response('sandman/settings.html', context_dict, context)
 
-def help(request):
-    context = RequestContext(request)
-    context_dict = {}
-    return render_to_response('sandman/help.html', context_dict, context)
 
 
 
