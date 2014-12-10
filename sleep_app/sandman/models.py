@@ -6,7 +6,7 @@ class Mode(models.Model):
     sleep = models.BooleanField()
 
     def __unicode__(self):
-        return self.name
+        return self.user
 
 class Contacts(models.Model):
     user = models.ForeignKey(User)
@@ -22,7 +22,7 @@ class Contacts(models.Model):
 
 class Help(models.Model):
     name = models.CharField(max_length=255)
-    email = models.EmailField(max_length=255, required=True)
+    email = models.EmailField(max_length=255)
     subject = models.CharField(max_length=255)
     message = models.TextField()
 

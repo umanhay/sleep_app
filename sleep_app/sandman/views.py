@@ -6,6 +6,9 @@ from django.http import HttpResponse
 from sandman.models import Mode
 from sandman.models import Help
 from sandman.models import Contacts
+from sandman.forms import HelpForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -45,7 +48,19 @@ def dom(request):
 
 def help(request):
     context = RequestContext(request)
-    context_dict = {}
+    if request.method == 'POST':
+        form = HelpForm(request.POST)
+        if form.is_valid():
+            try:
+                send_mail('subject', 'message', 'email', [admin@sandman.com])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return HttpResponseRedirect('/help/thanks/')
+        else:
+            return HttpResponse('Make sure all required fields are entered and valid.')
+    else:
+        form = HelpForm()
+
     return render_to_response('sandman/help.html', context_dict, context)
 
 
