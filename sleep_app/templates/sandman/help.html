@@ -1,52 +1,64 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 
-    <head lang="en">
-        <meta charset="UTF-8">
-        <title>Sandman</title>
-        <link rel="stylesheet" href="/static/css/main.css">
-    </head>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Sandman</title>
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+</head>
 
-    <body>
-        <div id="header">
-            <h1>HELP</h1>
-        </div>
-        <div id="content">
-            <h2>Getting Started</h2>
-            <p>Sandman will help you sleep through the night by silencing
-            all calls except those in your "Charmed Circle".</p>
-            <p>Just sync Sandman to your phone's contact list,
-            choose the contacts you wish to mark "Charmed",
-            and turn on the sleep mode when you go to bed.
-            Don't forget to choose 'Wake' when you want to unsilence your phone.</p>
-            <br>
-            <h2>FAQs</h2>
-            <h3>How do I make Sandman automatically turn on and off?</h3>
-            <p>Click the link to "Settings" and choose "Auto" in the menu.
-            A drop-down menu will allow you to set your 'sleep' and 'wake' times.
-            You can set Sandman to be manual, automatic or 1/2 and 1/2, which allows
-            you to manually 'sleep' and auto 'wake' or vice versa.</p>
-            <br>
-            <br>
-        </div>
-        <h2>Contact Us</h2>
-        <form id="contact_us" action="/sandman/help/" method="POST" onsubmit="return captureSubmit()">
-            <input type="text" name="name"><br />
-            <input type="text" name="email"><br />
-            <input type="text" name="subject"><br />
-            <textarea name="message" ></textarea><br /><br />
-            <input type="submit" value="Send">
-        </form>
+<body>
+<div id="header">
+    <h1>HELP</h1>
+</div>
+<div class="content">
+    <h2>Getting Started</h2>
 
+    <p>Sandman will help you sleep through the night by silencing
+        all calls except those in your "Charmed Circle".</p>
 
-        <footer>
-            <ul>
-                <li><a href="/sandman/">Home</a></li>
-                <li><a href="/sandman/charmed/">Charmed Circle</a></li>
-                <li><a href="/sandman/settings/">Settings</a></li>
-                <li><a href="/sandman/help/">Help</a></li>
-            </ul>
-        </footer>
-    </body>
+    <p>Just sync Sandman to your phone's contact list,
+        choose the contacts you wish to mark "Charmed",
+        and turn on the sleep mode when you go to bed.
+        Don't forget to choose 'Wake' when you want to unsilence your phone.</p>
+    <br>
+
+    <h2>FAQs</h2>
+
+    <h3>How do I make Sandman automatically turn on and off?</h3>
+
+    <p>Click the link to "Settings" and choose "Auto" in the menu.
+        A drop-down menu will allow you to set your 'sleep' and 'wake' times.
+        You can set Sandman to be manual, automatic or 1/2 and 1/2, which allows
+        you to manually 'sleep' and auto 'wake' or vice versa.</p>
+    <br>
+    <br>
+
+    <h2>Contact Us</h2>
+</div>
+<div class="content">
+    <form id="contact_us" method="POST">
+        <input id="input" type="text" name="name" placeholder="Your Name"><br/>
+        <input id="input" type="text" name="email" placeholder="Email Address"><br/>
+        <input id="input" type="text" name="subject" placeholder="Subject"><br/>
+        <textarea id="textarea" name="message" placeholder="What can we help you with?"></textarea><br/><br/>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<br />
+
+<div class="content">
+    <footer>
+        <ul>
+            <li><a href="/sandman/">Home</a></li>
+            <li><a href="/sandman/charmed/">Charmed Circle</a></li>
+            <li><a href="/sandman/settings/">Settings</a></li>
+            <li><a href="/sandman/help/">Help</a></li>
+        </ul>
+    </footer>
+</div>
+</body>
 
 </html>

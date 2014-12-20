@@ -3,8 +3,9 @@ GENERAL
 *************************/
 
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #422C83;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #422C83;
+    display: inherit;
 }
 
 /*************************
@@ -20,14 +21,33 @@ HEADING
 /*************************
 CONTENT
 *************************/
+.content {
+    width: 90%;
+    padding-left: 5%;
+}
 
-#content p, h3 {
+.content p, h3 {
     color: #ffffff;
 }
 
-#content h2 {
+.content h2 {
     color: #886ED7;
 }
+
+#contact_us {
+    margin-bottom: 1em;
+}
+
+#input {
+    width: 90%;
+    margin-bottom: 2em;
+}
+
+#textarea {
+    width: 90%;
+    height: 3em;
+}
+
 
 
 /*************************
@@ -53,10 +73,10 @@ footer a {
     color: #886ED7;
     font-weight: 500;
     padding: 15px 10px;
-    -o-transition:color .2s ease-out;
-    -ms-transition:color .2s ease-out;
-    -moz-transition:color .2s ease-out;
-    -webkit-transition:color .2s ease-out;
+    -o-transition: color .2s ease-out;
+    -ms-transition: color .2s ease-out;
+    -moz-transition: color .2s ease-out;
+    -webkit-transition: color .2s ease-out;
     transition: color .2s ease-out;
 }
 

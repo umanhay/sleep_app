@@ -73,22 +73,20 @@ def dom(request):
 
     return render(request, 'sandman/dom.html')
 
-# def help(request):
-#     context = RequestContext(request)
-#     if request.method == 'POST':
-#         form = HelpForm(request.POST)
-#         if form.is_valid():
-#             try:
-#                 send_mail('subject', 'message', 'email', [admin@sandman.com])
-#             except BadHeaderError:
-#                 return HttpResponse('Invalid header found.')
-#             return HttpResponseRedirect('/help/thanks/')
-#         else:
-#             return HttpResponse('Make sure all required fields are entered and valid.')
-#     else:
-#         form = HelpForm()
-#
-#     return render_to_response('sandman/help.html', context_dict, context)
+def help(request):
+    context = RequestContext(request)
+    if request.method == 'POST':
+        form = HelpForm(request.POST)
+        if form.is_valid():
+            try:
+                send_mail('subject', 'message', 'email', ["admin@sandman.com"])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return HttpResponseRedirect('/help/thanks/')
+        else:
+            return HttpResponse('Make sure all required fields are entered and valid.')
+
+    return render_to_response('sandman/help.html')
 
 
 def charmed(request):
