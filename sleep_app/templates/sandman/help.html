@@ -39,7 +39,8 @@
     <h2>Contact Us</h2>
 </div>
 <div class="content">
-    <form id="contact_us" method="POST">
+    <form id="contact_us" method="POST" onsubmit="return help()">
+        {% csrf_token %}
         <input id="input" type="text" name="name" placeholder="Your Name"><br/>
         <input id="input" type="text" name="email" placeholder="Email Address"><br/>
         <input id="input" type="text" name="subject" placeholder="Subject"><br/>
@@ -55,7 +56,7 @@
             <li><a href="/sandman/">Home</a></li>
             <li><a href="/sandman/charmed/">Charmed Circle</a></li>
             <li><a href="/sandman/settings/">Settings</a></li>
-            <li><a href="/sandman/help/">Help</a></li>
+            <li><a href="/sandman/help/" class="selected">Help</a></li>
         </ul>
     </footer>
 </div>

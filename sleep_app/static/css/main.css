@@ -80,6 +80,10 @@ footer a {
     transition: color .2s ease-out;
 }
 
-footer a:hover {
+footer a:visited {
+    color: #886ED7;
+}
+
+footer a:hover, footer a.selected {
     color: #201349;
 }
