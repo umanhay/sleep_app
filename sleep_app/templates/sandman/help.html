@@ -5,6 +5,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Sandman</title>
+
     <link rel="stylesheet" href="{% static "css/main.css" %}">
     <link rel="stylesheet" href="{% static "css/normalize.css" %}">
 </head>
@@ -39,16 +40,99 @@
     <h2>Contact Us</h2>
 </div>
 <div class="content">
-    <form id="contact_us" method="POST" onsubmit="return help()">
+    <form id="contact_us" method="POST" action="/help_ajax/">
         {% csrf_token %}
-        <input id="input" type="text" name="name" placeholder="Your Name"><br/>
-        <input id="input" type="text" name="email" placeholder="Email Address"><br/>
-        <input id="input" type="text" name="subject" placeholder="Subject"><br/>
+        <input id="name" type="text" name="name" placeholder="Your Name"><br/>
+        <input id="email" type="text" name="email" placeholder="Email Address"><br/>
+        <input id="subject" type="text" name="subject" placeholder="Subject"><br/>
         <textarea id="textarea" name="message" placeholder="What can we help you with?"></textarea><br/><br/>
-        <input type="submit" value="Submit">
+        <input id="submit" type="submit" value="Submit">
     </form>
+    <p id="error"></p>
 </div>
 <br />
+<script>
+
+        var elName = document.getElementById("name");
+        var elEmail = document.getElementById("email");
+        var elSubject = document.getElementById("subject");
+        var elMsg = document.getElementById("textarea");
+        var elError = document.getElementById("error");
+        var event = document.getElementById("submit");
+
+        var xhr = new XMLHttpRequest();
+
+
+        function submitHelp(formData) {
+            xhr.open("POST", "/sandman/help_ajax/", true);
+            xhr.send(formData);
+            xhr.onload(function () {
+                if(xhr.status === 200) {
+                    elError.textContent = "Thank you for submitting.";
+                }
+
+            })
+        }
+
+        function captureSubmit(){
+            var elementList = document.getElementById("contact_us").children;
+            var formDataList = [];
+            for(var i=0; i < elementList.length; i++){
+                var element = elementList[i];
+                formDataList.push(
+                        encodeURIComponent(element.name)//matches name attribute of input
+                        + "=" +
+                        encodeURIComponent(element.value)
+                );
+                console.log(element.name);
+            }
+            submitHelp(formDataList.join("&"));
+            return false;
+        }
+
+        function checkFields(e) {
+            e.preventDefault();
+
+            if (!e) {
+                e = window.event;
+            }
+            errorCount = 0;
+            if (elName.length < 2) {
+                elError.textContent = "Please enter your name.";
+                errorCount++;
+            }
+            if (elEmail == ' ' || elEmail.indexOf('@') == -1 || elEmail.indexOf('.') == -1) {
+                elError.textContent = "Please enter a valid email";
+                errorCount++;
+            if (elMsg.length < 10) {
+                elError.textContent = "Please let us know what we can help you with.";
+                errorCount++;
+            }
+            if(errorCount > 0) {
+                if (event.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+
+            }
+            if(errorCount === 0) {
+                captureSubmit();
+
+            }
+        }
+
+
+        var elForm = document.getElementById("contact_us");
+        if (elForm.addEventListener) {
+            elForm.addEventListener('submit', checkFields, false);
+        } else {
+            elForm.attachEvent('onsubmit', checkFields);
+        }
+
+
+
+    </script>
 
 <div class="content">
     <footer>

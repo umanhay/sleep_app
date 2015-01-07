@@ -75,26 +75,43 @@ def dom(request):
 def help(request):
     context = RequestContext(request)
     context_dict = {}
-    if request.method == 'POST':
-        name = request.POST["name"]
-        email = request.POST["email"]
-        subject = request.POST["subject"]
-        message = request.POST["message"]
-        help = Help()
-        e_message = "Message: " + str(message) + " " + "Email: " + str(email)
-        # help.name = request.POST["name"]
-        help.name = name
-        help.email = email
-        help.subject = subject
-        help.message = message
-        help.save()
-        try:
-            send_mail(subject, e_message, email, ["sleepapp88@gmail.com"])
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
+    # if request.method == 'POST':
+    #     name = request.POST["name"]
+    #     email = request.POST["email"]
+    #     subject = request.POST["subject"]
+    #     message = request.POST["message"]
+    #     help = Help()
+    #     e_message = "Message: " + str(message) + " " + "Name: " + str(name) + " " + "Email: " + str(email)
+    #     # help.name = request.POST["name"]
+    #     help.name = name
+    #     help.email = email
+    #     help.subject = subject
+    #     help.message = message
+    #     help.save()
+    #     try:
+    #         send_mail(subject, e_message, email, ["sleepapp88@gmail.com"])
+    #     except BadHeaderError:
+    #         return HttpResponse('Invalid header found.')
         # return HttpResponseRedirect('/help/thanks/')
 
     return render_to_response('sandman/help.html', context_dict, context)
+
+def help_ajax(request):
+    if request.method == "POST":
+        help = Help()
+        help.save()
+
+    help = list(Help.objects.all())
+    help_list = []
+    for el in help:
+        help_list.append({
+            "name": el.name,
+            "email": el.email,
+            "subject": el.subject,
+            "message": el.message
+        })
+
+    return HttpResponse(dumps(help_list, indent=4), content_type="application/json")
 
 
 def charmed(request):

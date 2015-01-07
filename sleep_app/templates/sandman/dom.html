@@ -7,31 +7,31 @@
         var request = new XMLHttpRequest();
 
 
-        function simple_draw(data) {
-            var list = document.getElementById("list");
-            data.forEach(function (item) {
-                list.innerHTML += item["name"];
-            });
-        }
+{#        function simple_draw(data) {#}
+{#            var list = document.getElementById("list");#}
+{#            data.forEach(function (item) {#}
+{#                list.innerHTML += item["name"];#}
+{#            });#}
+{#        }#}
+{##}
+{#        function element_draw(data) {#}
+{#            var list = document.getElementById("list");#}
+{#            data.forEach(function (item) {#}
+{#                var li = document.createElement("li");#}
+{#                li.innerHTML = item["name"] + ", " + item["number"];#}
+{#                list.appendChild(li);#}
+{#            });#}
+{#        }#}
 
-        function element_draw(data) {
-            var list = document.getElementById("list");
-            data.forEach(function (item) {
-                var li = document.createElement("li");
-                li.innerHTML = item["name"] + ", " + item["number"];
-                list.appendChild(li);
-            });
-        }
-
-        function classic_for_element_draw(data) {
-            var list = document.getElementById("list");
-            for (var index = 0; index < data.length; index++) {
-                var item = data[index];
-                var li = document.createElement("li");
-                li.innerHTML = item["name"] + ", " + item["number"];
-                list.appendChild(li);
-            }
-        }
+{#        function classic_for_element_draw(data) {#}
+{#            var list = document.getElementById("list");#}
+{#            for (var index = 0; index < data.length; index++) {#}
+{#                var item = data[index];#}
+{#                var li = document.createElement("li");#}
+{#                li.innerHTML = item["name"] + ", " + item["number"];#}
+{#                list.appendChild(li);#}
+{#            }#}
+{#        }#}
 
         function draw(data) {
             var list = document.getElementById("list");
@@ -64,9 +64,10 @@
         function fetch() {
             request.onload = undefined;
             request.onreadystatechange = onRequestChange;
-            request.open("GET", "/sandman/ajax", true);
+            request.open("GET", "/sandman/ajax/", true);
             request.send();
         }
+
         function load() {
             fetch();
         }
@@ -81,13 +82,13 @@
         function captureSubmit(){
             //Get inputs inside form and iterate over them.
             var elementList = document.getElementById("form1").children;
-            formDataList = [];
+            var formDataList = [];
             //Creating something like this:
             //title=spiderman&role=hero&color=red
             for(var i=0; i < elementList.length; i++){
                 var element = elementList[i];
                 formDataList.push(
-                        encodeURIComponent(element.name)
+                        encodeURIComponent(element.name)//matches name attribute of input
                         + "=" +
                         encodeURIComponent(element.value)
                 );
@@ -107,7 +108,7 @@
 </head>
 <body>
 <form id="form1" action="/sandman/ajax/" method="POST" onsubmit="return captureSubmit()">
-    <input name="name">
+    <input name="name" placeholder="Your Name">
     <input type="submit" value="Submit">
 </form>
 <ul id="list">
