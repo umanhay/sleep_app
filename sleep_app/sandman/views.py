@@ -75,19 +75,7 @@ def dom(request):
 def help(request):
     context = RequestContext(request)
     context_dict = {}
-    # if request.method == 'POST':
-    #     name = request.POST["name"]
-    #     email = request.POST["email"]
-    #     subject = request.POST["subject"]
-    #     message = request.POST["message"]
-    #     help = Help()
     #     e_message = "Message: " + str(message) + " " + "Name: " + str(name) + " " + "Email: " + str(email)
-    #     # help.name = request.POST["name"]
-    #     help.name = name
-    #     help.email = email
-    #     help.subject = subject
-    #     help.message = message
-    #     help.save()
     #     try:
     #         send_mail(subject, e_message, email, ["sleepapp88@gmail.com"])
     #     except BadHeaderError:
@@ -96,9 +84,16 @@ def help(request):
 
     return render_to_response('sandman/help.html', context_dict, context)
 
+#this decorator allows me to use ajax to post
+@csrf_exempt
 def help_ajax(request):
     if request.method == "POST":
+        print request
         help = Help()
+        help.name = request.POST["name"]
+        help.email = request.POST["email"]
+        help.subject = request.POST["subject"]
+        help.message = request.POST["message"]
         help.save()
 
     help = list(Help.objects.all())

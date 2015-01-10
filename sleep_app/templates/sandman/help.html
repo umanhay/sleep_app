@@ -62,16 +62,15 @@
 
         var xhr = new XMLHttpRequest();
 
-
         function submitHelp(formData) {
-            xhr.open("POST", "/sandman/help_ajax/", true);
-            xhr.send(formData);
-            xhr.onload(function () {
-                if(xhr.status === 200) {
-                    elError.textContent = "Thank you for submitting.";
+            xhr.open("POST", "/sandman/help_ajax/", true); //prepares the request
+            console.log(formData);
+            xhr.send(formData); //sends data to server
+            xhr.onload = function () { //function triggers after server responds
+                if(xhr.readyState === 4 && xhr.status === 200) {
+                    elError.textContent = "Thank you for submitting."
                 }
-
-            })
+            }
         }
 
         function captureSubmit(){
@@ -84,7 +83,7 @@
                         + "=" +
                         encodeURIComponent(element.value)
                 );
-                console.log(element.name);
+                console.log(formDataList);
             }
             submitHelp(formDataList.join("&"));
             return false;
@@ -92,45 +91,34 @@
 
         function checkFields(e) {
             e.preventDefault();
-
-            if (!e) {
-                e = window.event;
-            }
             errorCount = 0;
-            if (elName.length < 2) {
-                elError.textContent = "Please enter your name.";
+            var name = elName.value;
+            var msg =  elMsg.value;
+            var email = elEmail.value; //need to get the str of elements using .value so 'if' statements can check value
+            elError.textContent = "";
+            if (name.length < 2) {
+                elError.textContent += "Please enter your name.";
                 errorCount++;
             }
-            if (elEmail == ' ' || elEmail.indexOf('@') == -1 || elEmail.indexOf('.') == -1) {
-                elError.textContent = "Please enter a valid email";
+            if (email == ' ' || email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+                elError.textContent += "Please enter a valid email";
                 errorCount++;
-            if (elMsg.length < 10) {
-                elError.textContent = "Please let us know what we can help you with.";
+            }
+            if (msg.length < 10) {
+                elError.textContent += "Please let us know what we can help you with.";
                 errorCount++;
             }
             if(errorCount > 0) {
-                if (event.preventDefault) {
-                    e.preventDefault();
-                } else {
-                    event.returnValue = false;
+                e.preventDefault();
                 }
-
-            }
             if(errorCount === 0) {
                 captureSubmit();
-
             }
         }
 
 
         var elForm = document.getElementById("contact_us");
-        if (elForm.addEventListener) {
-            elForm.addEventListener('submit', checkFields, false);
-        } else {
-            elForm.attachEvent('onsubmit', checkFields);
-        }
-
-
+        elForm.addEventListener('submit', checkFields, false);
 
     </script>
 
