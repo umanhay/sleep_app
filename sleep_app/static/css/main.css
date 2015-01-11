@@ -97,3 +97,22 @@ footer a:visited {
 footer a:hover, footer a.selected {
     color: #201349;
 }
+
+/*************************
+MODE
+*************************/
+
+a[mode='stop'] {background-image: url('../images/pause.png');}
+a[mode='record'] {background-image: url('../images/record.png');}
+#buttons {
+  height: 100px;
+  width: 100px;
+  margin: 0px auto;}
+#buttons a {
+  width: 100px;
+  height: 100px;
+  text-indent: 100%;
+  margin-top: 20px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;}

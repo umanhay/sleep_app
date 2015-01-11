@@ -72,9 +72,10 @@ def dom(request):
 
     return render(request, 'sandman/dom.html')
 
+
 def help(request):
-    context = RequestContext(request)
-    context_dict = {}
+    if request.method == "POST":
+        print request.POST
     #     e_message = "Message: " + str(message) + " " + "Name: " + str(name) + " " + "Email: " + str(email)
     #     try:
     #         send_mail(subject, e_message, email, ["sleepapp88@gmail.com"])
@@ -82,7 +83,7 @@ def help(request):
     #         return HttpResponse('Invalid header found.')
         # return HttpResponseRedirect('/help/thanks/')
 
-    return render_to_response('sandman/help.html', context_dict, context)
+    return render(request, 'sandman/help.html')
 
 #this decorator allows me to use ajax to post
 @csrf_exempt
@@ -90,10 +91,10 @@ def help_ajax(request):
     if request.method == "POST":
         print request
         help = Help()
-        help.name = request.POST["name"]
-        help.email = request.POST["email"]
-        help.subject = request.POST["subject"]
-        help.message = request.POST["message"]
+        help.name = request.POST.get("name")
+        help.email = request.POST.get("email")
+        help.subject = request.POST.get("subject")
+        help.message = request.POST.get("message")
         help.save()
 
     help = list(Help.objects.all())
