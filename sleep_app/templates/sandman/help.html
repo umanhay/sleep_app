@@ -41,11 +41,12 @@
 </div>
 <div class="content">
     <form id="contact_us" method="POST" action="/help_ajax/">
-        {% csrf_token %}
+{#        {% csrf_token %}#}
         <input id="name" type="text" name="name" placeholder="Your Name"><br/>
         <input id="email" type="text" name="email" placeholder="Email Address"><br/>
         <input id="subject" type="text" name="subject" placeholder="Subject"><br/>
-        <textarea id="textarea" name="message" placeholder="What can we help you with?"></textarea><br/><br/>
+        <textarea id="textarea" name="message" placeholder="What can we help you with?"></textarea>
+        <p id="error"></p><br/>
         <input id="submit" type="submit" value="Submit">
     </form>
     <p id="error"></p>
@@ -65,6 +66,7 @@
         function submitHelp(formData) {
             xhr.open("POST", "/sandman/help_ajax/", true); //prepares the request
             console.log(formData);
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
             xhr.send(formData); //sends data to server
             xhr.onload = function () { //function triggers after server responds
                 if(xhr.readyState === 4 && xhr.status === 200) {
@@ -78,12 +80,14 @@
             var formDataList = [];
             for(var i=0; i < elementList.length; i++){
                 var element = elementList[i];
-                formDataList.push(
-                        encodeURIComponent(element.name)//matches name attribute of input
-                        + "=" +
-                        encodeURIComponent(element.value)
-                );
-                console.log(formDataList);
+                console.log(elementList);
+                if(element.tagName == "INPUT" || element.tagName == "TEXTAREA") {
+                    formDataList.push(
+                            encodeURIComponent(element.name)//matches name attribute of input
+                            + "=" +
+                            encodeURIComponent(element.value)
+                    );
+                }
             }
             submitHelp(formDataList.join("&"));
             return false;
