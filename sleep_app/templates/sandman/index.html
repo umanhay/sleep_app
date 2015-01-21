@@ -11,21 +11,53 @@
 </head>
 
     <body>
-        <div id="header">
+        <header>
             <h1>SANDMAN</h1>
-        </div>
-
-        <div id="button">
-          <a mode="sleep" href="">Sleep</a>
-        </div>
+        </header>
+        <section id="wrapper">
+            <button type="button" id="button" class="button" data-mode="wake">Sleep</button>
+            <form id="settings" action="/sandman/settings/" method="POST" onsubmit="return captureSubmit()">
+                <ul id="radio-buttons">
+                    <li><input type="radio" name="set" value="manual" checked="checked" /> Manual </li>
+                    <li><input type="radio" name="set" value="half" /> Half and Half </li>
+                    <li><input type="radio" name="set" value="auto" /> Automatic </li>
+                </ul>
+            </form>
+        </section>
         <script>
+            function modeState(e) {
+                target = e.target;
+                e.preventDefault();
 
+                switch(target.getAttribute('data-mode')) {
+                    case 'wake':
+                        wake(target);
+                        break;
+                    case 'sleep':
+                        sleep(target);
+                        break;
+                }
+            }
+
+            function wake(target) {
+                target.setAttribute('data-mode', 'sleep');
+                target.textContent = 'Wake';
+            }
+
+            function sleep(target) {
+                target.setAttribute('data-mode', 'wake');
+                target.textContent = 'Sleep';
+            }
+
+            var button = document.getElementById("button");
+            button.addEventListener('click', function(e) {
+                modeState(e);
+            }, false);
         </script>
         <footer>
             <ul>
                 <li><a href="/sandman/" class="selected">Home</a></li>
                 <li><a href="/sandman/charmed/">Charmed Circle</a></li>
-                <li><a href="/sandman/settings/">Settings</a></li>
                 <li><a href="/sandman/help/">Help</a></li>
             </ul>
         </footer>

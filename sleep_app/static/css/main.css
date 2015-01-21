@@ -12,14 +12,14 @@ body {
 HEADING
 *************************/
 
-#header {
+header {
     text-align: center;
     color: #886ED7;
     width: 100%;
 }
 
 /*************************
-CONTENT
+HELP PAGE
 *************************/
 .content {
     width: 90%;
@@ -34,30 +34,84 @@ CONTENT
     color: #886ED7;
 }
 
-#contact_us {
-    margin-bottom: 1em;
+    /*************************
+    HELP FORM
+    *************************/
+
+    #contact_us {
+        margin-bottom: 1em;
+    }
+
+    #name {
+        width: 90%;
+        margin-bottom: 2em;
+        border-radius: 5px;
+    }
+
+    #email {
+        width: 90%;
+        margin-bottom: 2em;
+        border-radius: 5px;
+    }
+
+    #subject {
+        width: 90%;
+        margin-bottom: 2em;
+        border-radius: 5px;
+    }
+
+    #textarea {
+        width: 90%;
+        height: 3em;
+        border-radius: 5px;
+    }
+
+    #error {
+        color: #8b0000;
+        font-weight: bold;
+        margin-left: 0;
+    }
+
+/*************************
+INDEX PAGE
+*************************/
+
+#wrapper {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
 }
 
-#name {
-    width: 90%;
-    margin-bottom: 2em;
-}
+    /*************************
+    MODE
+    *************************/
 
-#email {
-    width: 90%;
-    margin-bottom: 2em;
-}
+    .button {
+      height: 50px;
+      width: 100px;
+      margin: 50px auto;
+      text-align: center;
+      border-radius: 20px;
+      outline: 0;
+    }
 
-#subject {
-    width: 90%;
-    margin-bottom: 2em;
-}
+     /*************************
+    RADIO BUTTONS
+    *************************/
 
-#textarea {
-    width: 90%;
-    height: 3em;
-}
+    #settings ul {
+        width: 125px;
+        margin: 0 auto;
+        padding: 0 0 0 0;
+    }
 
+
+    #settings ul li {
+        list-style: none;
+        margin: 0 0 0 0;
+        padding: 0 0 5px 0;
+        text-align: left;
+    }
 
 
 /*************************
@@ -98,21 +152,3 @@ footer a:hover, footer a.selected {
     color: #201349;
 }
 
-/*************************
-MODE
-*************************/
-
-a[mode='stop'] {background-image: url('../images/pause.png');}
-a[mode='record'] {background-image: url('../images/record.png');}
-#buttons {
-  height: 100px;
-  width: 100px;
-  margin: 0px auto;}
-#buttons a {
-  width: 100px;
-  height: 100px;
-  text-indent: 100%;
-  margin-top: 20px;
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;}

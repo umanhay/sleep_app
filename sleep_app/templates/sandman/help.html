@@ -11,9 +11,9 @@
 </head>
 
 <body>
-<div id="header">
+<header>
     <h1>HELP</h1>
-</div>
+</header>
 <div class="content">
     <h2>Getting Started</h2>
 
@@ -42,14 +42,13 @@
 <div class="content">
     <form id="contact_us" method="POST" action="/help_ajax/">
 {#        {% csrf_token %}#}
-        <input id="name" type="text" name="name" placeholder="Your Name"><br/>
-        <input id="email" type="text" name="email" placeholder="Email Address"><br/>
+        <input id="name" type="text" name="name" placeholder="Your Name *Required"><br/>
+        <input id="email" type="text" name="email" placeholder="Email Address *Required"><br/>
         <input id="subject" type="text" name="subject" placeholder="Subject"><br/>
-        <textarea id="textarea" name="message" placeholder="What can we help you with?"></textarea>
+        <textarea id="textarea" name="message" placeholder="What can we help you with? *Required"></textarea>
         <p id="error"></p><br/>
         <input id="submit" type="submit" value="Submit">
     </form>
-    <p id="error"></p>
 </div>
 <br />
 <script>
@@ -65,14 +64,14 @@
 
         function submitHelp(formData) {
             xhr.open("POST", "/sandman/help_ajax/", true); //prepares the request
-            console.log(formData);
-            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded"); //sets header name and value//to send http headers with request
             xhr.send(formData); //sends data to server
-            xhr.onload = function () { //function triggers after server responds
+            xhr.onload = function () { //function triggers after server responds- callback
                 if(xhr.readyState === 4 && xhr.status === 200) {
                     elError.textContent = "Thank you for submitting."
                 }
             }
+            document.getElementById("contact_us").reset()
         }
 
         function captureSubmit(){
@@ -80,8 +79,7 @@
             var formDataList = [];
             for(var i=0; i < elementList.length; i++){
                 var element = elementList[i];
-                console.log(elementList);
-                if(element.tagName == "INPUT" || element.tagName == "TEXTAREA") {
+                if(element.tagName == "INPUT" || element.tagName == "TEXTAREA") { //so only inputs are sent, not html </br> tags
                     formDataList.push(
                             encodeURIComponent(element.name)//matches name attribute of input
                             + "=" +
@@ -99,17 +97,17 @@
             var name = elName.value;
             var msg =  elMsg.value;
             var email = elEmail.value; //need to get the str of elements using .value so 'if' statements can check value
-            elError.textContent = "";
+            elError.innerHTML = "";
             if (name.length < 2) {
-                elError.textContent += "Please enter your name.";
+                elError.innerHTML += "Please enter your name. <br/>";
                 errorCount++;
             }
             if (email == ' ' || email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-                elError.textContent += "Please enter a valid email";
+                elError.innerHTML += "Please enter a valid email. <br/>";
                 errorCount++;
             }
             if (msg.length < 10) {
-                elError.textContent += "Please let us know what we can help you with.";
+                elError.innerHTML += "Please let us know what we can help you with. <br/>";
                 errorCount++;
             }
             if(errorCount > 0) {
@@ -131,7 +129,6 @@
         <ul>
             <li><a href="/sandman/">Home</a></li>
             <li><a href="/sandman/charmed/">Charmed Circle</a></li>
-            <li><a href="/sandman/settings/">Settings</a></li>
             <li><a href="/sandman/help/" class="selected">Help</a></li>
         </ul>
     </footer>

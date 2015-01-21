@@ -117,11 +117,6 @@ def charmed(request):
     return render_to_response('sandman/charmed.html', context_dict, context)
 
 
-def settings(request):
-    context = RequestContext(request)
-    context_dict = {}
-
-    return render_to_response('sandman/settings.html', context_dict, context)
 
 
 
